@@ -4,7 +4,7 @@
   width: 1px;
   /* border: 1px solid blue; */
   /* overflow:hidden; */
-  background-color:blue;
+  background-color:rgba(0, 0, 255, 0);
   perspective:2000px;
   margin:auto;
   transform-style: preserve-3d;
@@ -13,7 +13,7 @@
 }
 
 .Panel{
-  background-color:rgb(0, 0, 0);
+  background-color:rgba(27, 27, 27, 0.589);
   position:absolute;
   transform-style: preserve-3d;
 
@@ -36,8 +36,9 @@
   perspective:8000px;
   transform:rotate(180deg); 
   border:1px solid black;
+
   overflow: hidden;
-  z-index:-1;
+  z-index:1;
   pointer-events: none;
 
 }
@@ -52,6 +53,7 @@
   background-color: black;
 
 
+
 }
 .newsimage{
   width:100%;
@@ -59,7 +61,6 @@
   transform-style: preserve-3d;
   /* backface-visibility: hidden; */
 
-  transform:rotateY(180deg)
 }
 
 .space2 .Panel{
@@ -68,3 +69,95 @@
   backface-visibility: hidden;
 
 } 
+
+.open{
+  text-align:center;
+  position:fixed;
+  z-index:3;
+  width:80%;
+  height:80%;
+  border:5px solid blue;
+  background-color: rgb(106, 106, 248);
+  border-radius:5px;
+  left:10%;
+  top:10%;
+  animation: imageRise .5s both;
+
+}
+
+.newsImage{
+  height:40%;
+  max-width: 80%;
+  margin:3%;
+
+
+
+}
+.newsImageOpen{
+  
+  animation:imageRise .5s both;
+}
+@keyframes imageRise{
+  0%{transform:translateY(-200%)}
+  100%{transform:translateY(0%)}
+}
+.newsText{
+  width:90%;
+  padding:3px;
+  margin:auto;
+  margin-top:3%;
+  background-color: white;
+  border-radius:5px;
+
+}
+.newsTexteOpen{
+  
+  animation:imageRise .5s both;
+}
+.newsTitle{
+  width:100%;
+  font-size: xx-large;
+  padding:2px;
+  text-align:center;
+  color:white;
+  border:1px white solid;
+  border-radius:2px;
+
+}
+.newsTitleOpen{
+  animation:imageRise .5s both;
+}
+.newsLink{
+  width:90%;
+  text-align:center;
+  margin-top:3%;
+  color:white;
+  padding:3px;
+  border-radius:3px;
+}
+.newsLink:hover{
+  background-color: white;
+  color:blue;
+}
+.newsLinkOpen{
+  animation:imageRise .5s both;
+}
+
+.invisibleP{
+  display:none;
+}
+
+.beam{
+  position:absolute;
+  background-color: lightblue;
+
+  width:10px;
+
+  height:150%;
+  animation:beamup .5s both
+}
+
+@keyframes beamup{
+  0%{transform:translateY(0%)}
+  100%{transform:translateY(700%)}
+}

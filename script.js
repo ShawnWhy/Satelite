@@ -147,6 +147,9 @@ var backgroundColor;
     )
   }
 
+      
+ 
+
 
 
     function searchNewsInitial(){
@@ -257,6 +260,31 @@ for(i=0;i<panels5b.length;i++){
 
     $(panels5b[i]).css("transform","rotate3d(0,1,0,"+(i*36)+"deg )translateZ(150px)rotate3d(0,1,0,180deg )")
 }
+var panels4b = $(".space2 .section4 .Panel");
+for(i=0;i<panels4b.length;i++){
+    // $(panels[i]).css("left",i*100+"%")
+
+    $(panels4b[i]).css("transform","rotate3d(0,1,0,"+(i*36)+"deg )translateZ(150px)rotate3d(0,1,0,180deg )")
+}
+var panels3b = $(".space2 .section3 .Panel");
+for(i=0;i<panels3b.length;i++){
+    // $(panels[i]).css("left",i*100+"%")
+
+    $(panels3b[i]).css("transform","rotate3d(0,1,0,"+(i*36)+"deg )translateZ(150px)rotate3d(0,1,0,180deg )")
+}
+var panels2b = $(".space2 .section2 .Panel");
+for(i=0;i<panels2b.length;i++){
+    // $(panels[i]).css("left",i*100+"%")
+
+    $(panels2b[i]).css("transform","rotate3d(0,1,0,"+(i*36)+"deg )translateZ(150px)rotate3d(0,1,0,180deg )")
+}
+var panels1b = $(".space2 .section1 .Panel");
+for(i=0;i<panels1b.length;i++){
+    // $(panels[i]).css("left",i*100+"%")
+
+    $(panels1b[i]).css("transform","rotate3d(0,1,0,"+(i*36)+"deg )translateZ(150px)rotate3d(0,1,0,180deg )")
+}
+
 
 
 
@@ -379,17 +407,174 @@ for(i=0;i<newsPanels.length;i++){
     newsimage.addClass("newsimage"),
     // console.log(capturedResponse.articles[randomnumber].image)
     // console.log(newsimage)
+    $(newsimage).attr("number",randomnumber)
     $(newsPanels[i]).append(newsimage)
 }
 }
+function openScreen(number){
+    console.log("openscreen")
+    $(".screen").removeClass("invisibleP")
+    $(".screen").addClass("open")
+    $(".newsText").html( capturedResponse.articles[number].description)
+    $(".newsTitle").html( capturedResponse.articles[number].title)
+    $(".newsLink").html("Read More")
+    $(".newsLink").attr("href",capturedResponse.articles[number].url)
+    $(".newsLink").attr("target","blank")
 
-$(document).on("click","newsimage",event=>{
+
+
+    $(".newsImage").attr("src", capturedResponse.articles[number].image)
+    setTimeout(() => {
+       $(".newsTitle").removeClass("invisibleP")
+       $(".newsTitle").addClass("newsTitleOpen")
+        setTimeout(() => {
+           $(".newsImage").removeClass("invisibleP")
+           $(".newsImage").addClass("newsImageOpen")
+               setTimeout(() => {
+                   $(".newsText").removeClass("invisibleP")
+                   $(".newsText").addClass("newsTitleOpen")
+                   setTimeout(() => {
+                       $(".newsLink").removeClass("invisibleP")
+                       $(".newsLink").addClass("newsLinkOpen")
+                       
+                   }, 500);
+                   
+               }, 500);
+            
+            
+           }, 500);
+        }, 500);
+}
+
+function lightbeam(){
+    var beam = $("<div>");
+    beam.addClass("beam");
+    $(".space .section1").prepend(beam);
+}
+function lightthingsup(number){
+    $(".space .section1 .Panel").css("background-color","lightblue")
+    setTimeout(() => {
+        $(".space .section2 .Panel").css("background-color","lightblue")
+        setTimeout(() => {
+            $(".space .section2 .Panel").css("background-color","lightblue")
+            setTimeout(() => {
+                $(".space .section3 .Panel").css("background-color","lightblue")
+                setTimeout(() => {
+                    $(".space .section4 .Panel").css("background-color","lightblue")
+                    setTimeout(() => {
+                        $(".space .section5 .Panel").css("background-color","lightblue")
+                        setTimeout(() => {
+                            $(".space .section6 .Panel").css("background-color","lightblue")
+                            setTimeout(() => {
+                                $(".space .section7 .Panel").css("background-color","lightblue")
+                                setTimeout(() => {
+                                    lightbeam()
+                                    setTimeout(() => {
+                                        openScreen(number)
+
+                                        
+                                    }, 500);
+                                    
+                                }, 50);
+                        
+                                
+                            }, 50);
+                    
+                            
+                        }, 50);
+                
+                        
+                    }, 50);
+            
+                    
+                }, 50);
+        
+                
+            }, 50);
+    
+    
+            
+        }, 50);
+
+        
+    }, 50);
+
+    
+
+
+}
+
+$(document).on("click",".newsimage",event=>{
     event.stopPropagation();
     event.preventDefault();
     console.log("click")
+    var number = $(event.target).attr("number");
+    lightthingsup(number)
+    
+
 })
 
-$(".space2 .Panel").mouseover(event=>{
+// $(".space2 .Panel").mouseover(event=>{
   
-    console.log("image")
+//     console.log("image")
+// })
+
+displayNews();
+
+var lights = $(".space .Panel");
+
+
+setInterval(() => {
+    rand1=Math.floor(Math.random()*lights.length)
+    rand2=Math.floor(Math.random()*lights.length)
+    rand3=Math.floor(Math.random()*lights.length)
+    rand4=Math.floor(Math.random()*lights.length)
+    rand5=Math.floor(Math.random()*lights.length)
+    var color;
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var j = 0; j < 6; j++) {
+    color += letters[Math.floor(Math.random() * 16)];}
+    var color2;
+    var letters = '0123456789ABCDEF';
+    var color2 = '#';
+    for (var j = 0; j < 6; j++) {
+    color2 += letters[Math.floor(Math.random() * 16)];}
+    var color3;
+    var letters = '0123456789ABCDEF';
+    var color3 = '#';
+    for (var j = 0; j < 6; j++) {
+    color3 += letters[Math.floor(Math.random() * 16)];}
+    var color4;
+    var letters = '0123456789ABCDEF';
+    var color4 = '#';
+    for (var j = 0; j < 6; j++) {
+    color4 += letters[Math.floor(Math.random() * 16)];}
+    var color5;
+    var letters = '0123456789ABCDEF';
+    var color5 = '#';
+    for (var j = 0; j < 6; j++) {
+    color5 += letters[Math.floor(Math.random() * 16)];}
+    $(lights).css("background-color","rgba(27, 27, 27, 1)")
+    $(lights[rand1]).css("background-color",color)
+    $(lights[rand2]).css("background-color",color2)
+    $(lights[rand3]).css("background-color",color3)
+    $(lights[rand4]).css("background-color",color4)
+    $(lights[rand5]).css("background-color",color5)
+
+    
+}, 400);
+
+$(document).on("click",".screen",event=>{
+    $(".screen").removeClass("open")
+    $(".screen").addClass("invisibleP");
+    $(".newsTitle").removeClass("newsTitleOpen")
+    $(".newsTitle").addClass("invisibleP");
+    $(".newsText").addClass("invisibleP");
+    $(".newsText").removeClass("newsTextOpen");
+    $(".newsImage").addClass("invisibleP");
+    $(".newsImage").removeClass("newsImageOpen");
+    $(".newsLink").addClass("invisibleP");
+    $(".newsLink").removeClass("newsLinkOpen");
+
 })
